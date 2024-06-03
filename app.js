@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const readline = require('readline');
 const session = require('express-session');
-const db = require('./db'); // db.js 파일을 가져옵니다
+const db = require('./db');
 
 const app = express();
 const port = 3000;
@@ -16,7 +16,7 @@ app.use(session({ secret: 'profiler secret', resave: false, saveUninitialized: t
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// 정적 파일 제공 설정 (CSS, JS 등)
+// 정적 파일 제공 설정
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 파일 저장 설정
@@ -47,7 +47,7 @@ function createTable(taskCount) {
 
 // 라우트 설정
 app.get('/', (req, res) => {
-    res.render('index', { fileName: req.session.fileName || '' }); // index.ejs 파일을 렌더링
+    res.render('index', { fileName: req.session.fileName || '' }); // index.ejs 파일 렌더링
 });
 
 // 파일 업로드 라우트
