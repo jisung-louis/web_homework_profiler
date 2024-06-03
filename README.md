@@ -21,7 +21,31 @@
     npm install
     ```
 
-3. 서버를 시작합니다:
+3. MySQL 데이터베이스 설정:
+    - MySQL을 설치합니다.
+    - MySQL 서버를 시작합니다:
+      ```bash
+      sudo service mysql start
+      ```
+    - MySQL 셸에 접속합니다:
+      ```bash
+      mysql -u root -p
+      ```
+      
+4. `config/config.json` 파일에서 MySQL 비밀번호를 자신의 비밀번호로 변경합니다:
+    ```json
+    {
+      "development": {
+        "username": "root",
+        "password": "your_mysql_password",  // 이 부분에서 본인의 비밀번호로 변경
+        "database": "profilerDB",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+      }
+    }
+    ```
+
+5. 서버를 시작합니다:
     ```bash
     npm start
     ```
@@ -41,6 +65,7 @@
 - `public/`: 정적 파일 (CSS, JS) 저장 폴더.
 - `views/`: EJS 템플릿 저장 폴더.
 - `uploads/`: 업로드된 파일이 임시로 저장되는 폴더.
+- `config/config.json`: 데이터베이스 연결 정보 설정 파일.
 
 ## 제작자
 성결대학교 20200869 전지성  
