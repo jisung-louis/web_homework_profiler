@@ -12,8 +12,8 @@
 
 1. 저장소를 클론합니다:
     ```bash
-    git clone https://github.com/yourusername/your-repo.git
-    cd your-repo
+    git clone https://github.com/jisung-louis/web_homework_profiler.git
+    cd nodejs-profiler
     ```
 
 2. 필요한 패키지를 설치합니다:
