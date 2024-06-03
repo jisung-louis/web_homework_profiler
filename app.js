@@ -62,6 +62,12 @@ app.post('/upload', upload.single('file'), (req, res) => {
     // 파일 처리 로직 추가 (데이터 분석 등)
     processFile(file.path)
         .then(() => {
+            // 파일 처리 후 삭제
+            fs.unlink(file.path, (err) => {
+                if (err) {
+                    console.error('Failed to delete the file:', err);
+                }
+            });
             res.redirect('/'); // 업로드 후 홈 페이지로 리다이렉트
         })
         .catch(err => {
