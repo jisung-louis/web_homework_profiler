@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Profiler</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1 id="upload-title">Upload your data file</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Upload</button>
+    </form>
+    <form action="/delete" method="post">
+        <button type="submit">Delete All Data</button>
+    </form>
+    <div>
+        <input type="radio" id="task" name="statType" value="tasks" checked>
+        <label for="task">Task</label>
+        <input type="radio" id="core" name="statType" value="cores">
+        <label for="core">Core</label>
+    </div>
+    <div>
+        <button id="barChartBtn">Bar Chart</button>
+        <button id="lineChartBtn">Line Chart</button>
+    </div>
+    <canvas id="chart"></canvas>
+
+    <script src="/script.js"></script>
+    <script>
+        // 파일 업로드 후 파일 이름 표시
+        const fileName = '<%= fileName %>';
+        if (fileName) {
+            document.getElementById('upload-title').textContent = fileName;
+        }
+    </script>
+</body>
+</html>
